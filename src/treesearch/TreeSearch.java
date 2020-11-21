@@ -56,6 +56,6 @@ public class TreeSearch {
 	public static Tree<String> constructDeterministicTree(Set<PositionList<String>> paths) {
 		return null;
 		//hola esto es una prueba para ver como funciona git con eclipse
-		
+		//esto es una segunda prueba a través del pc
 	}
 }
