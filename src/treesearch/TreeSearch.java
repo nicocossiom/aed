@@ -54,33 +54,41 @@ public class TreeSearch {
 		return resultado;
 	}
 
+	//Dado un arbol, una posicion de un camino y la posicion actual en dicho arbol, 
+	//Devuelve la posicion en el arbol si el el elemento del camino es hijo de la posicion actual en el arbol. Si el return=null no es hijo 
 	private static Position<String> esHijo (Tree<String> arbol, Position<String> cCamino, Position<String> cArbol){
 		Position<String> hijoArbol = null;
 		for(Position<String> hijo: arbol.children(cArbol)) {
-					if(hijo!=null) {
-						if(cCamino.element().equals(hijo.element())) {
-							hijoArbol=hijo;
-						}
-					}
+			if(hijo!=null) {
+				if(cCamino.element().equals(hijo.element())) {
+					hijoArbol=hijo;
 				}
+			}
+		}
 		return hijoArbol;
 	}
 
 	public static Tree<String> constructDeterministicTree(Set<PositionList<String>> paths) {
 		LinkedGeneralTree<String> arbol = new LinkedGeneralTree<String> ();
-		arbol.addRoot(paths.iterator().next().first().element()); //added root
-		for ( PositionList<String> camino : paths ) {
-			Position<String> cArbol=arbol.root();
-			camino.remove(camino.first()); //eliminamos raiz de todos los caminos
-			Set<Position<String>> posCamino = search(arbol, camino);
-			if (posCamino.isEmpty()) {
-				Position<String> cCamino = camino.first();
-				Position<String> hijoArbol = esHijo(arbol, cCamino, cArbol);
-				if(hijoArbol==null) {
-					arbol.addChildLast(cArbol, cCamino.element());
-					cArbol = esHijo(arbol, cCamino, cArbol);
+		for(PositionList<String> lista: paths) if(lista!=null) if (lista.isEmpty()) paths.remove(lista);//Limpiamos el set de listas vacias
+		if(!paths.isEmpty()) {
+			arbol.addRoot(paths.iterator().next().first().element());//Añadimos raíz	
+			for (PositionList<String> camino : paths ) {
+				Position<String> cArbol=arbol.root();
+				Set<Position<String>> posCamino = search(arbol, camino);//Set de posiciones si existe el camino 
+				if (posCamino.isEmpty()) { //Set vacio = hay que add camino
+					Position<String> cCamino = camino.first();	
+					cCamino=camino.next(cCamino);
+					while(cCamino!=null) { 
+						Position<String> hijoArbol = esHijo(arbol, cCamino, cArbol);
+						if(hijoArbol==null) {
+							arbol.addChildLast(cArbol, cCamino.element());
+							cArbol = esHijo(arbol, cCamino, cArbol);
+						}
+						else {cArbol=hijoArbol;}
+						cCamino=camino.next(cCamino);
+					}
 				}
-				else cArbol=hijoArbol;
 			}
 		}
 		return arbol;
