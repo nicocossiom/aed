@@ -2,6 +2,8 @@ package treesearch;
 
 
 
+import java.util.Iterator;
+
 import es.upm.aedlib.Position;
 import es.upm.aedlib.set.*;
 import es.upm.aedlib.positionlist.*;
@@ -52,11 +54,35 @@ public class TreeSearch {
 		return resultado;
 	}
 
+	private static Position<String> esHijo (Tree<String> arbol, Position<String> cCamino, Position<String> cArbol){
+		Position<String> hijoArbol = null;
+		for(Position<String> hijo: arbol.children(cArbol)) {
+					if(hijo!=null) {
+						if(cCamino.element().equals(hijo.element())) {
+							hijoArbol=hijo;
+						}
+					}
+				}
+		return hijoArbol;
+	}
 
 	public static Tree<String> constructDeterministicTree(Set<PositionList<String>> paths) {
-		return null;
-		//hola esto es una prueba para ver como funciona git con eclipse
-		//esto es una segunda prueba a trav�s del pc
-		//tercera prueba
+		LinkedGeneralTree<String> arbol = new LinkedGeneralTree<String> ();
+		arbol.addRoot(paths.iterator().next().first().element()); //added root
+		for ( PositionList<String> camino : paths ) {
+			Position<String> cArbol=arbol.root();
+			camino.remove(camino.first()); //eliminamos raiz de todos los caminos
+			Set<Position<String>> posCamino = search(arbol, camino);
+			if (posCamino.isEmpty()) {
+				Position<String> cCamino = camino.first();
+				Position<String> hijoArbol = esHijo(arbol, cCamino, cArbol);
+				if(hijoArbol==null) {
+					arbol.addChildLast(cArbol, cCamino.element());
+					cArbol = esHijo(arbol, cCamino, cArbol);
+				}
+				else cArbol=hijoArbol;
+			}
+		}
+		return arbol;
 	}
 }
