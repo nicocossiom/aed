@@ -14,14 +14,11 @@ public class TreeSearch {
 	private static void searchRec (Tree<String> t, PositionList<String> searchExprs , Position<String> cExpr, Position<String> cTree, Set<Position<String>> set) { 
 		Position<String> next = searchExprs.next(cExpr);	
 		if(next==null) { //final de lista compruebo segun ultimo elemento de lista
-			if  (t.isRoot(cTree) || cTree.element().equals(cExpr.element())) set.add(cTree);//ultimo es hoja(el que buscamos) o raiz -> al set
-			 //comodin meto todos los hijos del padre de cTree
-			else for(Position<String> son: t.children(t.parent(cTree))) set.add(son);
+			if (t.isRoot(cTree) || cTree.element().equals(cExpr.element())) set.add(cTree);//ultimo es hoja(el que buscamos) o raiz -> al set
+			else for(Position<String> son: t.children(t.parent(cTree))) set.add(son); //comodin meto todos los hijos del padre de cTree
 			return;
 		}
-		//recorrido normal, busco el siguiente nodo en los hijos desde donde estoy
-		for(Position<String> son: t.children(cTree)) {	
-			//encontrado o comodin, recursion actualizada
+		for(Position<String> son: t.children(cTree)) {	//recorrido normal, busco el siguiente nodo en los hijos desde donde estoy, si encontrado o comodin, recursion actualizada
 			if(son.element().equals(next.element()) || next.element().equals("*")){
 				searchRec(t, searchExprs, next, son, set);	
 			}
@@ -31,11 +28,8 @@ public class TreeSearch {
 	public static Set<Position<String>> search(Tree<String> t, PositionList<String> searchExprs) {
 		Set<Position<String>> resultado = new PositionListSet<Position<String>> ();
 		Position<String> first = searchExprs.first(); Position<String> root = t.root();
-		if(first.element().equals(root.element()) || first.element().equals("*")) {
-			if(searchExprs.size()<=t.size()) {
-				searchRec(t, searchExprs, first, root, resultado);
-			}
-		}
+		if(first.element().equals(root.element()) || first.element().equals("*")) if (searchExprs.size()==1) resultado.add(root);
+		else searchRec(t, searchExprs, first, root, resultado);
 		return resultado;
 	}
 
@@ -57,7 +51,7 @@ public class TreeSearch {
 		LinkedGeneralTree<String> arbol = new LinkedGeneralTree<String> ();
 		for(PositionList<String> lista: paths) if(lista!=null) if (lista.isEmpty()) paths.remove(lista);//Limpiamos el set de listas vacias
 		if(!paths.isEmpty()) {
-			arbol.addRoot(paths.iterator().next().first().element());//Añadimos raíz	
+			arbol.addRoot(paths.iterator().next().first().element());//AÃ±adimos raÃ­z	
 			for (PositionList<String> camino : paths ) {
 				Position<String> cArbol=arbol.root();
 				if (search(arbol, camino).isEmpty()) { //Set vacio = no existe camino -> lo creo 
