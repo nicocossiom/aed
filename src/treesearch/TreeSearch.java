@@ -12,43 +12,33 @@ import es.upm.aedlib.tree.*;
 
 public class TreeSearch {
 
-	private static void searchRec (Tree<String> t, PositionList<String> searchExprs , Position<String> cExpr, Position<String> cTree, Set<Position<String>> set, int counter) { 
+	private static void searchRec (Tree<String> t, PositionList<String> searchExprs , Position<String> cExpr, Position<String> cTree, Set<Position<String>> set) { 
 		Position<String> next = searchExprs.next(cExpr);	
 		//final de lista compruebo segun ultimo elemento de lista
-		if(counter==searchExprs.size()) { 
-			if (counter==1 || t.isExternal(cTree)) set.add(cTree);//Primer elemento -> al set 
-			//comodin
-			else if(cExpr.element().equals("*")) {
-				//Hoja del arbol
-				if (t.isExternal(cTree)) set.add(cTree);
-				else for(Position<String> son: t.children(t.parent(cTree))) {
-					if(son.element()!=null) set.add(son);
-				}
-			} 	
+		if(next==null) { 
+			if (t.isExternal(cTree) || t.isRoot(cTree)) set.add(cTree);//ultimo es hoja o raiz -> al set
+			 //comodin meto todos los hijos del padre de cTree
 			else for(Position<String> son: t.children(t.parent(cTree))) {
-				if(son.element()!=null) { 
-					if(cTree.element().equals(son.element())) {
-						set.add(son);
-					}
+					if(cExpr.element().equals("*")) set.add(son);
+					else if(cTree.element().equals(son.element())) set.add(son);
 				}
-			}
 			return;
 		}
 		//recorrido normal, busco el siguiente nodo en los hijos desde donde estoy
 		for(Position<String> son: t.children(cTree)) {	
 			//encontrado, recursion con el y el siguiente elemento de la expresion de busqueda
 			if(son.element().equals(next.element()) || next.element().equals("*")){
-				searchRec(t, searchExprs, next, son, set, counter+1);	
+				searchRec(t, searchExprs, next, son, set);	
 			}
 		}
 	}
 
 	public static Set<Position<String>> search(Tree<String> t, PositionList<String> searchExprs) {
 		Set<Position<String>> resultado = new PositionListSet<Position<String>> ();
-		Position<String> first = searchExprs.first(); Position<String> root = t.root(); int counter=1;
+		Position<String> first = searchExprs.first(); Position<String> root = t.root();
 		if(first.element().equals(root.element()) || first.element().equals("*")) {
 			if(searchExprs.size()<=t.size()) {
-				searchRec(t, searchExprs, first, root, resultado, counter);
+				searchRec(t, searchExprs, first, root, resultado);
 			}
 		}
 		return resultado;
@@ -78,14 +68,14 @@ public class TreeSearch {
 				Set<Position<String>> posCamino = search(arbol, camino);//Set de posiciones si existe el camino 
 				if (posCamino.isEmpty()) { //Set vacio = hay que add camino
 					Position<String> cCamino = camino.first();	
-					cCamino=camino.next(cCamino);
+					cCamino=camino.next(cCamino);//nos saltamos la raiz
 					while(cCamino!=null) { 
 						Position<String> hijoArbol = esHijo(arbol, cCamino, cArbol);
 						if(hijoArbol==null) {
 							arbol.addChildLast(cArbol, cCamino.element());
 							cArbol = esHijo(arbol, cCamino, cArbol);
 						}
-						else {cArbol=hijoArbol;}
+						else cArbol=hijoArbol;
 						cCamino=camino.next(cCamino);
 					}
 				}
