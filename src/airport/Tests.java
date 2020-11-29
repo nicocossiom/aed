@@ -16,31 +16,19 @@ import es.upm.aedlib.positionlist.*;
 
 public class Tests {
 	public static void main(String []args) {
-		Map<String, FlightArrival> table = new HashTableMap<String, FlightArrival>();
-		PriorityQueue<Long, FlightArrival> flightOrder = new HeapPriorityQueue<Long,FlightArrival>();
-		FlightArrival flight1 = new FlightArrival("Vuelo1",2020);
-		FlightArrival flight2 = new FlightArrival("Vuelo2",2010);
-		FlightArrival flight3 = new FlightArrival("Vuelo3",0010);
-		FlightArrival flight4 = new FlightArrival("ESP",0000);
-		FlightArrival flight5 = new FlightArrival("ESP",1010);
-		FlightArrival flight6 = new FlightArrival("ESP",1310);
-		table.put(flight1.getLeft(), flight1);
-		table.put(flight2.getLeft(), flight2);
-		table.put(flight3.getLeft(), flight3);
-		Iterator<Entry<String, FlightArrival>> it =table.entries().iterator();
-		System.out.println( table.toString());
-		
-		flightOrder.enqueue((long) 2020, flight1);
-		flightOrder.enqueue((long) 2010, flight2);
-		flightOrder.enqueue((long) 0010, flight3);
-		flightOrder.enqueue((long) 0000, flight4);
-		flightOrder.enqueue((long) 1010, flight5);
-		flightOrder.enqueue((long) 1310, flight6);
-		System.out.println(flightOrder.toString());
-		System.out.println(flightOrder.dequeue().toString());
-		System.out.println(flightOrder.dequeue().toString());
-		System.out.println(flightOrder.dequeue().toString());
-		System.out.println(flightOrder.toString());
+		IncomingFlightsRegistry registro = new IncomingFlightsRegistry();
+
+		registro.arrivesAt("Vuelo1", (long) 2001);
+		registro.arrivesAt("Vuelo2", (long) 2002);
+		registro.arrivesAt("Vuelo3", (long) 2003);
+		registro.arrivesAt("Vuelo4", (long) 2004);
+		registro.arrivesAt("Vuelo5", (long) 2005);
+		registro.arrivesAt("Vuelo6", (long) 2006);
+		registro.arrivesAt("Vuelo7", (long) 2007);
+
+		System.out.println("tabla" + registro.getTable().toString());
+		System.out.println("lista de prioridad" + registro.getPriority().toString());
+		System.out.println("tabla de entries" + registro.getEntryMap().toString());
 	}
 }
 
