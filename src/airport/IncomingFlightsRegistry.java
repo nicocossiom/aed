@@ -1,8 +1,7 @@
 package airport;
 
 
-import java.util.Comparator;
-import java.util.Iterator;
+
 
 import es.upm.aedlib.Entry;
 import es.upm.aedlib.Pair;
@@ -16,7 +15,6 @@ import es.upm.aedlib.positionlist.*;
  */
 public class IncomingFlightsRegistry {
 
-	private Map<String, FlightArrival> table;
 	private Map<String, Entry<Long, FlightArrival>> entrymap;
 	private	PriorityQueue<Long, FlightArrival> priority; 
 	/**
@@ -24,32 +22,19 @@ public class IncomingFlightsRegistry {
 	 */
 	public IncomingFlightsRegistry() {
 		priority = new HeapPriorityQueue<Long, FlightArrival>();
-		table = new HashTableMap<String, FlightArrival>();
 		entrymap = new HashTableMap<String, Entry<Long, FlightArrival>>();
 	}
-	
-	Map<String, FlightArrival> getTable( ){
-		return this.table;
-	}
-	 Map<String,  Entry<Long, FlightArrival>> getEntryMap( ){
-		return this.entrymap;
-	}
-	 PriorityQueue<Long, FlightArrival> getPriority( ){
-		return this.priority;
-	}
-	
+
+
 	/**
 	 * A flight is predicted to arrive at an arrival time (in seconds).
 	 */
 	public void arrivesAt(String flight, Long time) {
 		FlightArrival newFlight = new FlightArrival(flight, time);
-		if(!table.containsKey(flight)) {
-			table.put(flight, newFlight);
-			entrymap.put(flight, priority.enqueue(time, newFlight));
+		if(entrymap.containsKey(flight)) {
+			priority.remove(entrymap.get(flight));
 		}
-		else {
-			priority.replaceKey(entrymap.get(flight), time);
-		}
+		entrymap.put(flight, priority.enqueue(time, newFlight));
 	}
 
 	/**
@@ -57,9 +42,7 @@ public class IncomingFlightsRegistry {
 	 */
 	public void flightDiverted(String flight) {
 		try { 
-			priority.remove(entrymap.get(flight));
-			entrymap.remove(flight);
-			table.remove(flight);
+			priority.remove(entrymap.remove(flight));
 		}
 		catch(es.upm.aedlib.InvalidKeyException e) {
 			System.out.println("This flight is not registered to arrive at this airport");
@@ -80,7 +63,7 @@ public class IncomingFlightsRegistry {
 	public Long arrivalTime(String flight) {
 		Long time;
 		try {
-			time=table.get(flight).getRight();
+			time=entrymap.get(flight).getValue().getRight(); 
 		}
 		catch(java.lang.NullPointerException e) {
 			time=null;
@@ -89,20 +72,36 @@ public class IncomingFlightsRegistry {
 	}
 
 
-/**
- * Returns a list of "soon" arriving flights, i.e., if any 
- * is predicted to arrive at the airport within nowTime+180
- * then adds the predicted earliest arriving flight to the list to return, 
- * and removes it from the registry.
- * Moreover, also adds to the returned list, in order of arrival time, 
- * any other flights arriving withinfirstArrivalTime+120; these flights are 
- * also removed from the queue of incoming flights.
- * @return a list of soon arriving flights.
- */
-public PositionList<FlightArrival> arriving(Long nowTime) {
-	PositionList<FlightArrival> llegando = new NodePositionList<FlightArrival>();
-
-	return llegando;
-}
-
+	/**
+	 * Returns a list of "soon" arriving flights, i.e., if any 
+	 * is predicted to arrive at the airport within nowTime+180
+	 * then adds the predicted earliest arriving flight to the list to return, 
+	 * and removes it from the registry.
+	 * Moreover, also adds to the returned list, in order of arrival time, 
+	 * any other flights arriving withinfirstArrivalTime+120; these flights are 
+	 * also removed from the queue of incoming flights.
+	 * @return a list of soon arriving flights.
+	 */
+	public PositionList<FlightArrival> arriving(Long nowTime) {
+		PositionList<FlightArrival> llegando = new NodePositionList<FlightArrival>();
+		long first=0;
+		try {
+			first= priority.first().getKey();
+			if (first <= nowTime + 180) {
+				entrymap.remove(priority.first().getValue().flight());
+				llegando.addLast(priority.dequeue().getValue());
+				boolean stop=false;
+				while(!stop ){
+					if (priority.first().getKey() <= first + 120) {
+						entrymap.remove(priority.first().getValue().flight());
+						llegando.addLast(priority.dequeue().getValue());
+					}
+					else stop=true;
+				}
+			}
+		} 
+		catch(EmptyPriorityQueueException e){
+		}
+		return llegando;
+	}
 }
