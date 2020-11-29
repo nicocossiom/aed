@@ -84,17 +84,15 @@ public class IncomingFlightsRegistry {
 	 */
 	public PositionList<FlightArrival> arriving(Long nowTime) {
 		PositionList<FlightArrival> llegando = new NodePositionList<FlightArrival>();
-		long first=0;
 		try {
-			first= priority.first().getKey();
-			if (first <= nowTime + 180) {
-				entrymap.remove(priority.first().getValue().flight());
-				llegando.addLast(priority.dequeue().getValue());
+			Entry<Long, FlightArrival> first = priority.first();
+			if (first.getKey() <= nowTime + 180) {
+				removeadd(first.getValue().getLeft(), llegando);
 				boolean stop=false;
 				while(!stop ){
-					if (priority.first().getKey() <= first + 120) {
-						entrymap.remove(priority.first().getValue().flight());
-						llegando.addLast(priority.dequeue().getValue());
+					Entry<Long, FlightArrival> entrada = priority.first();  
+					if (entrada.getKey()<= first.getKey() + 120) {
+						removeadd(entrada.getValue().getLeft(), llegando);
 					}
 					else stop=true;
 				}
@@ -103,5 +101,9 @@ public class IncomingFlightsRegistry {
 		catch(EmptyPriorityQueueException e){
 		}
 		return llegando;
+	}
+	private void removeadd (String flight, PositionList<FlightArrival> lista) {
+		entrymap.remove(priority.first().getValue().flight());
+		lista.addLast(priority.dequeue().getValue());
 	}
 }
