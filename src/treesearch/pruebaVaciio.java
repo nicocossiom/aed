@@ -8,10 +8,10 @@ import es.upm.aedlib.set.Set;
 public class pruebaVaciio {
 
 	public static void main(String[] args) {
-		Set<PositionList<String>> paths = new PositionListSet<PositionList<String>> ();
-		PositionList<String> lista1= new NodePositionList<String>();
+		Set<PositionList<String>> paths = new PositionListSet<PositionList<String>>();
+		PositionList<String> lista1 = new NodePositionList<String>();
 		lista1.addFirst("hola");
-		PositionList<String> lista2= new NodePositionList<String>();
+		PositionList<String> lista2 = new NodePositionList<String>();
 		paths.add(lista1);
 		paths.add(lista2);
 		System.out.println(paths);
