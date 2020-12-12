@@ -11,6 +11,7 @@ import es.upm.aedlib.graph.Graph;
 import es.upm.aedlib.map.HashTableMap;
 import es.upm.aedlib.map.Map;
 import es.upm.aedlib.set.HashTableMapSet;
+import es.upm.aedlib.set.PositionListSet;
 import es.upm.aedlib.set.Set;
 import java.util.Iterator;
 
@@ -67,10 +68,32 @@ public class Delivery<V> {
 	// The list containts a series of vertices, with no repetitions (even if the path
 	// can be expanded to a cycle).
 	public PositionList <Vertex<V>> tour() {
-
-		return null;
+		Set<Edge<Integer>> visited = new PositionListSet<Edge<Integer>>();
+		PositionList<Vertex<V>> path = new NodePositionList<Vertex<V>>();
+		Vertex<V> startVert = graph.vertices().iterator().next();
+		HamiltonianPath(path, this.getGraph(), visited, startVert); 
+		return path;
 	}
 
+	private void HamiltonianPath(PositionList<Vertex<V>> path, DirectedGraph<V, Integer> graph, Set<Edge<Integer>> visited, Vertex<V> vert) {
+		System.out.println("Vertex actual: " + vert.toString());
+		if (visited.size()==graph.size()) return;
+		for(Edge<Integer> edge : graph.outgoingEdges(vert)) {
+			if (!visited.contains(edge) && !isInPath(path, vert)) visited.add(edge); path.addLast(vert);
+			Vertex<V> connectedVert = graph.endVertex(edge); 
+			HamiltonianPath(path, graph, visited, connectedVert);
+		}
+
+	}
+	private boolean isInPath(PositionList<Vertex<V>> path, Vertex<V> vertex) {
+		boolean result=false; 
+		Iterator<Vertex<V>> it = path.iterator(); 
+		while(it.hasNext() && !result) {
+			Vertex<V> vertList = it.next(); 
+			result = vertList.equals(vertex); 
+		}
+		return false;
+	}
 	public int length(PositionList<Vertex<V>> path) {
 		return tour().size();
 	}
