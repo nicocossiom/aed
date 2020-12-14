@@ -21,7 +21,6 @@ public class Delivery<V> {
 	private V[] places;
 	private Integer[][] gmat;
 	private DirectedGraph<V, Integer> graph; 
-	private int suma;
 	// Construct a graph out of a series of vertices and an adjacency matrix.
 	// There are 'len' vertices. A negative number means no connection. A non-negative
 	// number represents distance between nodes.
@@ -30,7 +29,6 @@ public class Delivery<V> {
 		this.gmat=gmat;
 		graph= new DirectedAdjacencyListGraph <V, Integer> ();
 		graphConstructor(graph, gmat, places);
-		System.out.println(graph.toDot());
 	}
 	
 	private void graphConstructor(DirectedGraph<V, Integer> graph2, Integer[][] gmat2, V[] places2) {
@@ -64,15 +62,11 @@ public class Delivery<V> {
 		Iterator<Vertex<V>> it = graph.vertices().iterator();
 		while(it.hasNext() && found==false) {
 			path = new NodePositionList<Vertex<V>>();;
-			Pair<PositionList<Vertex<V>>, Integer> pair = new Pair<PositionList<Vertex<V>>, Integer>(path, 0);
-			path=pair.getLeft();
 			Vertex<V> startVert = it.next();
 			try {
 				if (graph.outDegree(startVert)!=0) {
 					path.addLast(startVert);
-					pair = HamiltonianPath(pair, this.getGraph(), startVert);
-					path = pair.getLeft();
-					suma = pair.getRight();
+					path = HamiltonianPath(path, this.getGraph(), startVert);
 					if(path.size()==places.length) found=true;
 				}
 			}
@@ -82,18 +76,14 @@ public class Delivery<V> {
 		return path;
 	}
 
-	private Pair<PositionList<Vertex<V>>, Integer> HamiltonianPath(Pair<PositionList<Vertex<V>>, Integer> pair, DirectedGraph<V, Integer> graph, Vertex<V> vert) {
-		PositionList<Vertex<V>> path = pair.getLeft(); 
-		int sumaCamino=pair.getRight();
-		if(path.size()==places.length) return pair;
+	private PositionList<Vertex<V>> HamiltonianPath(PositionList<Vertex<V>> path, DirectedGraph<V, Integer> graph, Vertex<V> vert) {
+		if(path.size()==places.length) return path;
 		for(Edge<Integer> edge : graph.outgoingEdges(vert)) {
 			if(edge!=null) {
 				Vertex<V> connectedVert = graph.endVertex(edge); 
 				if(!isInPath(path, connectedVert)) {
-					pair.setRight(pair.getRight()+edge.element());
 					path.addLast(connectedVert);
-					System.out.println(edge+ "\npath= "+path);
-					System.out.println("\nSuma= "+sumaCamino);Pair<PositionList<Vertex<V>>, Integer> result = HamiltonianPath(pair, graph, connectedVert);
+					PositionList<Vertex<V>> result = HamiltonianPath(path, graph, connectedVert);
 					if (result!=null) return result;
 					else path.remove(path.last());
 				}
@@ -111,8 +101,23 @@ public class Delivery<V> {
 		}
 		return result;
 	}
+	
 	public int length(PositionList<Vertex<V>> path) {
-		return suma;
+		return lengthRec(path, path.first(), 0); 
+	}
+
+	private int lengthRec(PositionList<Vertex<V>> path, Position<Vertex<V>> vert, int suma) {
+		Position<Vertex<V>> next = path.next(vert);
+		if(vert.equals(path.last())) return suma; 
+		Iterator<Edge<Integer>> it = graph.outgoingEdges(vert.element()).iterator(); 
+		while (it.hasNext()) {
+			Edge<Integer> edge = it.next(); 
+			if(graph.endVertex(edge).equals(next.element())) {
+				int result = edge.element() + lengthRec(path, path.next(vert), suma); ; 
+				if(result!=0) return result; 
+			}
+		}
+		return 0;
 	}
 
 	public String toString() {
