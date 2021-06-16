@@ -11,7 +11,7 @@ public class Find {
 		// Encontrado printeo
 		if (p.element().equals(fileName)) {
 			Printer.enableOutput();
-			Printer.println(path);	
+			Printer.println(path);
 			return;
 		}
 		for (Position<String> son : directory.children(p)) {

@@ -12,12 +12,12 @@
 
 //////////////////////////////////////////////////////////////////////
 //
-// File generated at: 2020/10/9 -- 12:27:20
-// Seed: {1602,239238,995529}
+// File generated at: 2020/11/26 -- 18:56:24
+// Seed: {1606,413382,851967}
 //
 //////////////////////////////////////////////////////////////////////
 
-package individual3;
+package airport;
 
 import org.junit.jupiter.api.*;
 import static org.junit.jupiter.api.Assertions.*;
@@ -51,13 +51,13 @@ import java.util.function.Function;
  * The main tester class which contains JUnit5 tests.
  */
 @SuppressWarnings({ "unused", "deprecation" })
-public class TesterInd3 {
+public class TesterLab6 {
 
 	@BeforeAll
 	public static void init() {
 		TestUtils.reportPid();
 		ResultsHandler.init();
-		ResultsHandler.setNumTestsRemaining(51, 60);
+		ResultsHandler.setNumTestsRemaining(36, 60);
 		TestData.setTesterType(true);
 	}
 
@@ -92,7 +92,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_01"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -107,14 +107,19 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_02");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_02"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(1) })).doCall()
-							.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(1) }));
+					v_1 = v_0.getValue();
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -128,7 +133,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_02"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -143,17 +148,21 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_03");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_03"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(1),
-							new Integer(1), new Integer(1), new Integer(1), new Integer(1), new Integer(3),
-							new Integer(3), null, new Integer(3), new Integer(2) })).doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(1),
-											new Integer(3), null, new Integer(3), new Integer(2) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 2820L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -167,7 +176,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_03"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -182,16 +191,22 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_04");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_04"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(1), new Integer(1), new Integer(1), new Integer(3) })).doCall()
-									.checkResult(new NodePositionList<Integer>(
-											new Integer[] { new Integer(1), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(2640L)).doCall().checkResult(
+							new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(new FlightArrival[] {}));
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -205,7 +220,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_04"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -220,19 +235,23 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_05");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_05"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(1),
-							new Integer(1), new Integer(3), new Integer(3), new Integer(1), new Integer(1),
-							new Integer(2), new Integer(3), null, null, new Integer(3), new Integer(2) }))
-									.doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(1),
-											new Integer(3), new Integer(1), new Integer(2), new Integer(3), null,
-											new Integer(3), new Integer(2) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("RYR2514")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 2760L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -246,7 +265,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_05"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -261,19 +280,25 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_06");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_06"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(1),
-							new Integer(1), null, new Integer(3), null, new Integer(3), new Integer(2), new Integer(2),
-							new Integer(2), null, new Integer(2), new Integer(1), null, new Integer(1) }))
-									.doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(1), null,
-											new Integer(3), null, new Integer(3), new Integer(2), null, new Integer(2),
-											new Integer(1), null, new Integer(1) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 2220L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(2040L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("THY1857"), 2220) }));
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -287,7 +312,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_06"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -302,17 +327,24 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_07");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_07"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { new Integer(1), new Integer(1), null,
-									new Integer(3), null, new Integer(3), new Integer(3), new Integer(2) })).doCall()
-											.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(1),
-													null, new Integer(3), null, new Integer(3), new Integer(2) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 2580L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(2340L)).doCall().checkResult(
+							new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(new FlightArrival[] {}));
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -326,7 +358,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_07"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -341,19 +373,25 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_08");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_08"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(1), new Integer(2), new Integer(1), new Integer(2),
-									new Integer(3), new Integer(2), new Integer(1), new Integer(2) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(1),
-													new Integer(2), new Integer(1), new Integer(2), new Integer(3),
-													new Integer(2), new Integer(1), new Integer(2) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AFR1300"), 3060L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("AFR1300")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 2880L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -367,7 +405,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_08"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -382,16 +420,31 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_09");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_09"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(1),
-							new Integer(2), null, new Integer(2), new Integer(2), new Integer(1) })).doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(1),
-											new Integer(2), null, new Integer(2), new Integer(1) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("SAS111"), 120L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("UAL222"), 180L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE123"), 180L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(10L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("SAS111"), 120),
+											new FlightArrival(new String("UAL222"), 180),
+											new FlightArrival(new String("IBE123"), 180) }));
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -405,7 +458,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_09"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -420,16 +473,31 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_10");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_10"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { new Integer(1), new Integer(3) })).doCall()
-									.checkResult(new NodePositionList<Integer>(
-											new Integer[] { new Integer(1), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("SAS111"), 120L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("UAL222"), 180L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE123"), 240L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(60L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("SAS111"), 120),
+											new FlightArrival(new String("UAL222"), 180),
+											new FlightArrival(new String("IBE123"), 240) }));
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -443,7 +511,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_10"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -458,16 +526,27 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_11");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_11"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(1), new Integer(3), new Integer(1) })).doCall()
-									.checkResult(new NodePositionList<Integer>(
-											new Integer[] { new Integer(1), new Integer(3), new Integer(1) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 1320L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 2880L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("IBE8331")).doCall().checkResult(new Long(2880L));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("IBE8331")).doCall().checkResult(new Long(2880L));
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -481,7 +560,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_11"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -496,20 +575,31 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_12");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_12"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(1), new Integer(3), new Integer(1), new Integer(2), null,
-									new Integer(2), null, new Integer(3), null, new Integer(2), new Integer(3) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(
-													new Integer[] { new Integer(1), new Integer(3), new Integer(1),
-															new Integer(2), null, new Integer(2), null, new Integer(3),
-															null, new Integer(2), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("SAS111")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("SAS111"), 120L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("SAS111")).doCall().checkResult(new Long(120L));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(10L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("SAS111"), 120) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("SAS111")).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -523,7 +613,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_12"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -538,19 +628,32 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_13");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_13"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { new Integer(1), new Integer(3),
-									new Integer(1), null, new Integer(1), null, null, new Integer(3), null, null }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(
-													new Integer[] { new Integer(1), new Integer(3), new Integer(1),
-															null, new Integer(1), null, new Integer(3), null }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("SAS111"), 120L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("UAL222"), 120L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("UAL222")).doCall().checkResult(new Long(120L));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(10L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("SAS111"), 120),
+											new FlightArrival(new String("UAL222"), 120) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("UAL222")).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -564,7 +667,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_13"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -579,19 +682,34 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_14");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_14"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(1), new Integer(3), new Integer(3), new Integer(1),
-									new Integer(2), null, new Integer(3), new Integer(2), null, null }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(1),
-													new Integer(3), new Integer(1), new Integer(2), null,
-													new Integer(3), new Integer(2), null }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("SAS111"), 120L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("UAL222"), 180L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE123"), 180L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM456"), 240L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(60L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("SAS111"), 120),
+											new FlightArrival(new String("UAL222"), 180),
+											new FlightArrival(new String("IBE123"), 180),
+											new FlightArrival(new String("KLM456"), 240) }));
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -605,7 +723,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_14"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -620,19 +738,31 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_15");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_15"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(1),
-							new Integer(3), new Integer(3), new Integer(3), null, null, new Integer(3), new Integer(2),
-							new Integer(1), new Integer(3), null, new Integer(2), null, new Integer(1) }))
-									.doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(1),
-											new Integer(3), null, new Integer(3), new Integer(2), new Integer(1),
-											new Integer(3), null, new Integer(2), null, new Integer(1) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 3240L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(3120L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("IBE3835"), 3240) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 6660L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("LAN706")).doCall().checkResult(new Long(6660L));
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("LAN706")).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -646,7 +776,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_15"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -661,19 +791,29 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_16");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_16"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(1), new Integer(3), null, new Integer(3), new Integer(3),
-									new Integer(1), new Integer(3), new Integer(3), new Integer(3), new Integer(3) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(
-													new Integer[] { new Integer(1), new Integer(3), null,
-															new Integer(3), new Integer(1), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 3360L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 300L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 2760L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 3060L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 2100L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -687,7 +827,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_16"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -702,16 +842,31 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_17");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_17"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(1), null,
-							new Integer(1), null, null, new Integer(1), new Integer(3) })).doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(1), null,
-											new Integer(1), null, new Integer(1), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 3420L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 900L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(780L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("LZB471"), 900) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 3360L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("VLG9741")).doCall().checkResult(new Long(3360L));
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -725,7 +880,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_17"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -740,16 +895,30 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_18");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_18"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(1), null,
-							new Integer(3), null, new Integer(3), new Integer(1) })).doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(1), null,
-											new Integer(3), null, new Integer(3), new Integer(1) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(1500L)).doCall().checkResult(
+							new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(new FlightArrival[] {}));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 4440L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("KLM1701")).doCall().checkResult(new Long(4440L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 2880L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 4020L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -763,7 +932,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_18"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -778,15 +947,30 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_19");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_19"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { new Integer(1), null, null })).doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(1), null }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(3480L)).doCall().checkResult(
+							new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(new FlightArrival[] {}));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 4140L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("DLH1112")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 4560L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 4200L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -800,7 +984,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_19"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -815,19 +999,31 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_20");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_20"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(2), new Integer(1), new Integer(1), new Integer(1), null,
-									new Integer(2), new Integer(2), null, new Integer(2), new Integer(3) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(
-													new Integer[] { new Integer(2), new Integer(1), null,
-															new Integer(2), null, new Integer(2), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("SAS111"), 120L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("SAS111")).doCall().checkResult(new Long(120L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("SAS111"), 120L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("SAS111")).doCall().checkResult(new Long(120L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("SAS111"), 60L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("SAS111")).doCall().checkResult(new Long(60L));
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -841,7 +1037,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_20"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -856,19 +1052,31 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_21");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_21"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(2), new Integer(1), new Integer(2), new Integer(2), null, null,
-									new Integer(1), new Integer(2), new Integer(2), new Integer(3) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(
-													new Integer[] { new Integer(2), new Integer(1), new Integer(2),
-															null, new Integer(1), new Integer(2), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 960L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("IBE8331")).doCall().checkResult(new Long(960L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 1980L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 900L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AFR1300"), 1200L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 1980L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -882,7 +1090,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_21"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -897,20 +1105,31 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_22");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_22"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(2), new Integer(2), new Integer(1), new Integer(1),
-									new Integer(2), new Integer(1), new Integer(2), new Integer(2), new Integer(2),
-									new Integer(1), new Integer(1), new Integer(2), new Integer(3) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(2),
-													new Integer(1), new Integer(2), new Integer(1), new Integer(2),
-													new Integer(1), new Integer(2), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 3180L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 2880L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 840L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 1080L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("KLM1701")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 840L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -924,7 +1143,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_22"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -939,16 +1158,35 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_23");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_23"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(2),
-							new Integer(2), new Integer(1), null, new Integer(1), new Integer(3) })).doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(2),
-											new Integer(1), null, new Integer(1), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("BAW7055")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AFR1300"), 3420L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 3600L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(3240L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("AFR1300"), 3420) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("THY1857")).doCall().checkResult(new Long(3600L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 4200L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 6960L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -962,7 +1200,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_23"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -977,21 +1215,33 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_24");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_24"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(2), new Integer(2), new Integer(3), new Integer(2),
-									new Integer(2), new Integer(3), new Integer(1), new Integer(1), new Integer(2),
-									new Integer(1), new Integer(1), new Integer(2), null, new Integer(3) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(
-													new Integer[] { new Integer(2), new Integer(3), new Integer(2),
-															new Integer(3), new Integer(1), new Integer(2),
-															new Integer(1), new Integer(2), null, new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 2100L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("AAL8646")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 2220L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 360L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("AZA058")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 2880L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 2280L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1005,7 +1255,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_24"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -1020,16 +1270,43 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_25");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_25"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { new Integer(2), new Integer(3) })).doCall()
-									.checkResult(new NodePositionList<Integer>(
-											new Integer[] { new Integer(2), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 1800L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("DLH1112")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 1140L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 3600L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(1080L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("AEA042"), 1140) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("VLG9741")).doCall().checkResult(new Long(3600L));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(3420L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("VLG9741"), 3600) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 7140L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 4320L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("DLH1112")).doCall().checkResult(new Long(4320L));
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1043,7 +1320,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_25"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -1058,16 +1335,43 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_26");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_26"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(2),
-							new Integer(3), new Integer(2), new Integer(2), new Integer(3) })).doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(2),
-											new Integer(3), new Integer(2), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 720L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AAL8646")).doCall().checkResult(new Long(720L));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AAL8646")).doCall().checkResult(new Long(720L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 3180L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(480L)).doCall().checkResult(
+							new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(new FlightArrival[] {}));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 2640L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(480L)).doCall().checkResult(
+							new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(new FlightArrival[] {}));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 1020L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("LZB471")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("LAN706")).doCall().checkResult(new Long(2640L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 3660L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1081,7 +1385,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_26"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -1096,21 +1400,43 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_27");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_27"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { new Integer(2), new Integer(3),
-									new Integer(2), null, new Integer(1), null, new Integer(3), null, new Integer(1),
-									new Integer(1), null, new Integer(2), null, new Integer(1), new Integer(3) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(2),
-													new Integer(3), new Integer(2), null, new Integer(1), null,
-													new Integer(3), null, new Integer(1), null, new Integer(2), null,
-													new Integer(1), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 2220L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("LZB471")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 2280L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 2940L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 1020L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(840L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("LAN706"), 1020) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 2400L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AFR1300"), 2760L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 2280L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AZA058")).doCall().checkResult(new Long(2940L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 2040L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1124,7 +1450,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_27"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -1139,19 +1465,45 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_28");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_28"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(2), null,
-							new Integer(1), null, new Integer(2), new Integer(3), new Integer(3), new Integer(1),
-							new Integer(1), new Integer(1), new Integer(1), new Integer(2), new Integer(3), null }))
-									.doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(2), null,
-											new Integer(1), null, new Integer(2), new Integer(3), new Integer(1),
-											new Integer(2), new Integer(3), null }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 1680L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 1620L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(1500L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("AEA042"), 1620) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 3060L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 2280L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("IBE8331")).doCall().checkResult(new Long(2280L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 4080L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("AZA058")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 2700L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 3000L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("IBE8331")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 3060L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1165,7 +1517,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_28"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -1180,16 +1532,50 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_29");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_29"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(2), null, new Integer(3), null, null, new Integer(2) }))
-									.doCall().checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(2),
-											null, new Integer(3), null, new Integer(2) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 2820L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("IBE8331")).doCall().checkResult(new Long(2820L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 1800L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("IBE8331")).doCall().checkResult(new Long(2820L));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("LZB471")).doCall().checkResult(new Long(1800L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 300L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("THY1857")).doCall().checkResult(new Long(300L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 300L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(180L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("THY1857"), 300),
+											new FlightArrival(new String("VLG9741"), 300) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 1560L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 2640L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(1440L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("AEA042"), 1560) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 3720L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1203,7 +1589,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_29"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -1218,16 +1604,50 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_30");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_30"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(2), null, null,
-							new Integer(1), new Integer(1), null, new Integer(1), new Integer(1) })).doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(2), null,
-											new Integer(1), null, new Integer(1) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 3060L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(3000L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("LZB471"), 3060) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 5100L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 4800L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("AEA042")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 4620L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 4260L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("THY1857")).doCall().checkResult(new Long(4620L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AFR1300"), 5340L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 4800L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 5040L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(4020L)).doCall().checkResult(
+							new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(new FlightArrival[] {}));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AFR1300")).doCall().checkResult(new Long(5340L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 4740L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1241,7 +1661,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_30"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -1256,14 +1676,56 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_31");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_31"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(3) })).doCall()
-							.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 2280L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(2100L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("IBE3835"), 2280) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 4500L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("IBE3835")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 3420L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 2880L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("THY1857")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 3060L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("DLH1112")).doCall().checkResult(new Long(3060L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 3360L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(3120L)).doCall().checkResult(
+							new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(new FlightArrival[] {}));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("DLH1112")).doCall().checkResult(new Long(3360L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AFR1300"), 6600L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(3180L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("DLH1112"), 3360) }));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(6420L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("AFR1300"), 6600) }));
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1277,7 +1739,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_31"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -1292,16 +1754,61 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_32");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_32"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { new Integer(3), new Integer(1), null }))
-									.doCall().checkResult(new NodePositionList<Integer>(
-											new Integer[] { new Integer(3), new Integer(1), null }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 1560L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 2280L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(1500L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("VLG9741"), 1560) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 2400L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("IBE8331")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 2460L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("THY1857")).doCall().checkResult(new Long(2460L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 4740L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 4740L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 4920L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 3480L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AFR1300"), 2640L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AEA042")).doCall().checkResult(new Long(4740L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 2880L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("AFR1300")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 5160L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("KLM1701")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 4320L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("THY1857")).doCall().checkResult(new Long(2460L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 2940L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1315,7 +1822,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_32"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -1330,20 +1837,72 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_33");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_33"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(3), new Integer(1), null, new Integer(1), new Integer(2),
-									new Integer(1), null, new Integer(3), null, new Integer(1), new Integer(3) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(
-													new Integer[] { new Integer(3), new Integer(1), null,
-															new Integer(1), new Integer(2), new Integer(1), null,
-															new Integer(3), null, new Integer(1), new Integer(3) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 480L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 3000L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("LAN706")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("DLH1112")).doCall().checkResult(new Long(3000L));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(2760L)).doCall().checkResult(
+							new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(new FlightArrival[] {}));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 3720L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(2880L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("DLH1112"), 3000) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("LAN706")).doCall().checkResult(new Long(3720L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 5400L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 5400L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 3960L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AAL8646")).doCall().checkResult(new Long(5400L));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(3660L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("LAN706"), 3720) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 5160L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 5220L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("VLG9741")).doCall().checkResult(new Long(3960L));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(3840L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("VLG9741"), 3960) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 6840L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AFR1300"), 6780L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(5040L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("LAN706"), 5220) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 6780L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("AAL8646")).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1357,7 +1916,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_33"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -1372,19 +1931,83 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_34");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_34"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(3),
-							new Integer(1), null, null, null, new Integer(3), new Integer(3), new Integer(1), null,
-							new Integer(1), new Integer(1), new Integer(3), new Integer(2) }))
-									.doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(3),
-											new Integer(1), null, new Integer(3), new Integer(1), null, new Integer(1),
-											new Integer(3), new Integer(2) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 2520L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("VLG9741")).doCall().checkResult(new Long(2520L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 1320L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 1500L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 1500L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(1320L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("IBE3835"), 1500) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 5040L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(2400L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("VLG9741"), 2520) }));
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("THY1857")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 4860L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AEA042")).doCall().checkResult(new Long(4860L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 4500L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(4260L)).doCall().checkResult(
+							new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(new FlightArrival[] {}));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(4320L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("THY1857"), 4500) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 4560L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(4500L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("AEA042"), 4560) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 7080L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 7560L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 7800L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 7140L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 7680L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(7020L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("AZA058"), 7080),
+											new FlightArrival(new String("KLM1701"), 7140) }));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(7500L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("IBE3835"), 7680) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 8820L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 8760L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1398,7 +2021,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_34"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -1413,21 +2036,138 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_35");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_35"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(3), new Integer(2), new Integer(1), new Integer(3),
-									new Integer(1), new Integer(3), new Integer(3), new Integer(3), new Integer(1),
-									new Integer(1), new Integer(3), null, null, new Integer(1), new Integer(1) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(
-													new Integer[] { new Integer(3), new Integer(2), new Integer(1),
-															new Integer(3), new Integer(1), new Integer(3),
-															new Integer(1), new Integer(3), null, new Integer(1) }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 1440L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(1260L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("AAL8646"), 1440) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 2760L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("LAN706")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 4500L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 4740L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 3420L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 4620L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(3240L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("LZB471"), 3420) }));
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("AAL8646")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 6240L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 6660L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AZA058")).doCall().checkResult(new Long(6240L));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("DLH1112")).doCall().checkResult(new Long(6660L));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("DLH1112")).doCall().checkResult(new Long(6660L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 4380L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 6360L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 6900L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 6840L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(4320L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("LZB471"), 4380) }));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(4440L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("THY1857"), 4620) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 7140L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(6180L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("AZA058"), 6240),
+											new FlightArrival(new String("VLG9741"), 6360) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 7020L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 7320L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 7680L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(6840L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("VLG9741"), 7020) }));
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("LAN706")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 7920L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 10140L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("IBE8331")).doCall().checkResult(new Long(10140L));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(7200L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("DLH1112"), 7320) }));
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("LZB471")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("IBE8331")).doCall().checkResult(new Long(10140L));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(9960L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("IBE8331"), 10140) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("BAW7055")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 12960L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(12900L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("LZB471"), 12960) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 16320L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 16380L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 13620L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 15000L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 13560L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 14460L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AAL8646")).doCall().checkResult(new Long(15000L));
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("IBE8331")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("LZB471")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 16260L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 16020L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 14460L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1441,7 +2181,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_35"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -1456,18 +2196,165 @@ public class TesterInd3 {
 		boolean resultIs = true;
 		try {
 			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
+				TestResult<IncomingFlightsRegistry, Void> v_0 = null;
+				IncomingFlightsRegistry v_1 = null;
 				TesterCode.resetPrinter();
 				TestData.initTrace();
 				TestData.testName = new String("test_36");
 				boolean ok_sofar = true;
 				ResultsHandler.startTest(new String("test_36"));
+				if (ok_sofar) {
+					v_0 = new Constructor().doCall();
+					ok_sofar = v_0.checkResult(null);
+				}
 				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { new Integer(3), new Integer(2),
-									new Integer(2), null, new Integer(3), new Integer(3), new Integer(1), null }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(3),
-													new Integer(2), null, new Integer(3), new Integer(1), null }));
+					v_1 = v_0.getValue();
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 2520L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("VLG9741")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 3420L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("RYR2514")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("LAN706")).doCall().checkResult(new Long(3420L));
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(3300L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("LAN706"), 3420) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 5760L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(5580L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("VLG9741"), 5760) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 7560L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AAL8646")).doCall().checkResult(new Long(7560L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 8460L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AAL8646")).doCall().checkResult(new Long(7560L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 8460L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(7380L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("AAL8646"), 7560) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 11100L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(8340L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("AEA042"), 8460),
+											new FlightArrival(new String("LAN706"), 8460) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 10140L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(10080L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("DLH1112"), 10140) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 11280L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("IBE8331")).doCall().checkResult(new Long(11280L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 12720L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 11460L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 10980L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("IBE8331")).doCall().checkResult(new Long(11460L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 12720L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 11760L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("LZB471")).doCall().checkResult(new Long(12720L));
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("LZB471")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 11520L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("RYR2514")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("IBE3835")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("IBE8331")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("LAN706")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(11280L)).doCall().checkResult(
+							new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(new FlightArrival[] {}));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 13500L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 11760L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("KLM1701")).doCall().checkResult(new Long(11760L));
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("THY1857")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("VLG9741"), 13440L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 14100L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(11580L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("KLM1701"), 11760) }));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("VLG9741")).doCall().checkResult(new Long(13440L));
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AAL8646")).doCall().checkResult(new Long(14100L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AEA042"), 14760L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 12720L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new Arriving(v_1, new Long(12660L)).doCall()
+							.checkResult(new es.upm.aedlib.positionlist.NodePositionList<FlightArrival>(
+									new FlightArrival[] { new FlightArrival(new String("IBE8331"), 12720) }));
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("AAL8646")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 15480L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivalTime(v_1, new String("AZA058")).doCall().checkResult(new Long(15480L));
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AFR1300"), 16140L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("DLH1112"), 14460L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("AFR1300")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE8331"), 13320L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AAL8646"), 15060L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LAN706"), 14460L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AFR1300"), 15900L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("THY1857"), 16080L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 14640L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 14100L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("LZB471"), 14520L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("IBE3835"), 14040L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("KLM1701"), 14520L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new FlightDiverted(v_1, new String("AFR1300")).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AFR1300"), 14280L).doCall().checkResult(null);
+				if (ok_sofar)
+					ok_sofar = new ArrivesAt(v_1, new String("AZA058"), 15360L).doCall().checkResult(null);
 				return ok_sofar;
 			});
 		} catch (org.opentest4j.AssertionFailedError exc) {
@@ -1481,593 +2368,7 @@ public class TesterInd3 {
 		}
 		String messages = TestData.getMessages();
 		ResultsHandler.stopTest(new String("test_36"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_37() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_37");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_37"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(3), new Integer(2), new Integer(3), new Integer(2) })).doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(3),
-											new Integer(2), new Integer(3), new Integer(2) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_37"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_38() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_38");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_38"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(3),
-							new Integer(3), new Integer(1), new Integer(3), new Integer(1), new Integer(2) })).doCall()
-									.checkResult(new NodePositionList<Integer>(new Integer[] { new Integer(3),
-											new Integer(1), new Integer(3), new Integer(1), new Integer(2) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_38"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_39() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_39");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_39"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { new Integer(3),
-							new Integer(3), new Integer(2), new Integer(2), new Integer(2), new Integer(1),
-							new Integer(2), new Integer(1), new Integer(1), new Integer(2) })).doCall().checkResult(
-									new NodePositionList<Integer>(new Integer[] { new Integer(3), new Integer(2),
-											new Integer(1), new Integer(2), new Integer(1), new Integer(2) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_39"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_40() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_40");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_40"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { new Integer(3), null, new Integer(1), new Integer(3) })).doCall()
-									.checkResult(new NodePositionList<Integer>(
-											new Integer[] { new Integer(3), null, new Integer(1), new Integer(3) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_40"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_41() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_41");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_41"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { new Integer(3), null, new Integer(3) }))
-									.doCall().checkResult(new NodePositionList<Integer>(
-											new Integer[] { new Integer(3), null, new Integer(3) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_41"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_42() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_42");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_42"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { null, new Integer(1), new Integer(1), new Integer(2), new Integer(2),
-									new Integer(2), new Integer(2), new Integer(3), new Integer(1), new Integer(2),
-									new Integer(3), new Integer(2), new Integer(1), new Integer(3), null }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(new Integer[] { null,
-													new Integer(1), new Integer(2), new Integer(3), new Integer(1),
-													new Integer(2), new Integer(3), new Integer(2), new Integer(1),
-													new Integer(3), null }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_42"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_43() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_43");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_43"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { null, new Integer(1), null,
-							new Integer(3), new Integer(2), new Integer(2), new Integer(1), new Integer(2),
-							new Integer(1), new Integer(1), new Integer(3), new Integer(3) }))
-									.doCall()
-									.checkResult(new NodePositionList<Integer>(
-											new Integer[] { null, new Integer(1), null, new Integer(3), new Integer(2),
-													new Integer(1), new Integer(2), new Integer(1), new Integer(3) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_43"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_44() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_44");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_44"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { null, new Integer(2), new Integer(2),
-									new Integer(1), new Integer(1), new Integer(1), null, null, null, new Integer(1) }))
-											.doCall().checkResult(new NodePositionList<Integer>(new Integer[] { null,
-													new Integer(2), new Integer(1), null, new Integer(1) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_44"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_45() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_45");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_45"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { null, new Integer(2), new Integer(3), null,
-									new Integer(3), new Integer(3), null, new Integer(3), new Integer(2) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(
-													new Integer[] { null, new Integer(2), new Integer(3), null,
-															new Integer(3), null, new Integer(3), new Integer(2) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_45"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_46() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_46");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_46"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { null, new Integer(3) }))
-							.doCall()
-							.checkResult(new NodePositionList<Integer>(new Integer[] { null, new Integer(3) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_46"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_47() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_47");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_47"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { null, new Integer(3), new Integer(1), new Integer(2) })).doCall()
-									.checkResult(new NodePositionList<Integer>(
-											new Integer[] { null, new Integer(3), new Integer(1), new Integer(2) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_47"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_48() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_48");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_48"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { null, new Integer(3), new Integer(2) }))
-									.doCall().checkResult(new NodePositionList<Integer>(
-											new Integer[] { null, new Integer(3), new Integer(2) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_48"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_49() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_49");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_49"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(
-							new Integer[] { null, null, new Integer(2), new Integer(1), new Integer(2), new Integer(1),
-									new Integer(1), new Integer(3), new Integer(1), new Integer(3), new Integer(3) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(new Integer[] { null,
-													new Integer(2), new Integer(1), new Integer(2), new Integer(1),
-													new Integer(3), new Integer(1), new Integer(3) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_49"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_50() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_50");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_50"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(
-							new NodePositionList<Integer>(new Integer[] { null, null, new Integer(3), new Integer(2),
-									null, new Integer(1), null, new Integer(1), new Integer(2), null, new Integer(1) }))
-											.doCall()
-											.checkResult(new NodePositionList<Integer>(new Integer[] { null,
-													new Integer(3), new Integer(2), null, new Integer(1), null,
-													new Integer(1), new Integer(2), null, new Integer(1) }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_50"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
-		if (messages.length() > 0)
-			System.out.println(messages);
-		if (!resultIs)
-			Assertions.assertTrue(resultIs, messages);
-	}
-
-	@Test
-	public void test_51() {
-		if (ResultsHandler.isTimedout()) {
-			Assertions.assertTrue(false, new String("Testing stopped due to global timeout -- too slow execution"));
-		}
-		boolean resultIs = true;
-		try {
-			resultIs = Assertions.assertTimeoutPreemptively(Duration.ofSeconds(10), () -> {
-				TesterCode.resetPrinter();
-				TestData.initTrace();
-				TestData.testName = new String("test_51");
-				boolean ok_sofar = true;
-				ResultsHandler.startTest(new String("test_51"));
-				if (ok_sofar)
-					ok_sofar = new Compactar(new NodePositionList<Integer>(new Integer[] { null, null, null })).doCall()
-							.checkResult(new NodePositionList<Integer>(new Integer[] { null }));
-				return ok_sofar;
-			});
-		} catch (org.opentest4j.AssertionFailedError exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.DURING,
-					new String("*** TIMEOUT! *** Very slow or non-terminating execution"), exc);
-			resultIs = false;
-		} catch (Throwable exc) {
-			TestUtils.printCallException(TestUtils.ExecutionTime.UNRELATED,
-					new String("Internal testing error; please report this to teachers"), exc);
-			resultIs = false;
-		}
-		String messages = TestData.getMessages();
-		ResultsHandler.stopTest(new String("test_51"));
-		ResultsHandler.add_result(new String("compactar"), resultIs);
+		ResultsHandler.add_result(new String("airport"), resultIs);
 		if (messages.length() > 0)
 			System.out.println(messages);
 		if (!resultIs)
@@ -2075,7 +2376,31 @@ public class TesterInd3 {
 	}
 
 	static class Tests {
-		static String tester = "TesterInd3";
+		static String tester = "TesterLab6";
+	}
+
+	static class AirportUtils {
+		public static void resetPrinter() {
+		}
+
+		public static String printer(Object obj) {
+			if (obj instanceof IncomingFlightsRegistry) {
+				return "airport";
+			} else
+				return TestUtils.printer(obj, x -> printer(x));
+		}
+
+		public static boolean checkArriving(TestCall<PositionList<FlightArrival>, PositionList<FlightArrival>> call,
+				TestResult<PositionList<FlightArrival>, PositionList<FlightArrival>> result,
+				PositionList<FlightArrival> expected) {
+
+			if (call.noException() && call.nonNull()) {
+				PositionList<FlightArrival> resultValue = result.getValue();
+				return TestUtils.wellSorted(call, resultValue, expected, (Pair<FlightArrival, FlightArrival> p) -> p
+						.getLeft().arrivalTime() == p.getRight().arrivalTime());
+			} else
+				return false;
+		}
 	}
 
 	static class TestUtils {
@@ -2339,6 +2664,32 @@ public class TesterInd3 {
 			return true;
 		}
 
+		// Checks that results, which are basic arrays, are equal
+		static <E, F> boolean eqArrays(TestCall<int[], int[]> call, TestResult<int[], int[]> result, int[] expected) {
+			if (!call.noException())
+				return false;
+			if (!call.nonNull())
+				return false;
+
+			return eqArrays(call, result.getValue(), expected);
+		}
+
+		static boolean eqArrays(TestCall<int[], int[]> call, int[] value, int[] expected) {
+			boolean ok_sofar = value.length == expected.length;
+
+			if (ok_sofar) {
+				for (int i = 0; i < value.length && ok_sofar; i++) {
+					ok_sofar = ok_sofar && (value[i] == expected[i]);
+				}
+			}
+
+			if (!ok_sofar) {
+				printError(ExecutionTime.DURING, "the call " + call.toString() + " returned an array "
+						+ printArray(value) + " which differs from the expected array " + printArray(expected));
+			}
+			return ok_sofar;
+		}
+
 		// Checks that results, which are iterables, return the same
 		// elements, regardless of the order.
 		static <E, F> boolean sameElements(TestCall<E, F> call, TestResult<E, F> result, F expected) {
@@ -2438,6 +2789,63 @@ public class TesterInd3 {
 				printError(ExecutionTime.DURING, "the call " + call.toString() + " returned a list: " + value
 						+ " which isn't sorted correctly. The correct sort order is " + expected);
 				return false;
+			}
+			return true;
+		}
+
+		static <E> boolean wellSorted(TestCall<?, ?> call, PositionList<E> value, PositionList<E> expected,
+				Function<Pair<E, E>, Boolean> isSame) {
+
+			PositionList<E> expectedCopy = new NodePositionList<E>(expected);
+
+			if (value.size() != expected.size()) {
+				printError(ExecutionTime.DURING,
+						"the call " + call.toString() + " returned a list:\n  " + value
+								+ "\nwhich contains the wrong number of elements.\n"
+								+ "The correct list (modulo order of equal elements) is\n  " + expectedCopy);
+				return false;
+			}
+
+			Position<E> valuePos = value.first();
+
+			while (valuePos != null) {
+				E valueE = valuePos.element();
+
+				if (valueE == null) {
+					if (value.size() != expected.size()) {
+						printError(ExecutionTime.DURING,
+								"the call " + call.toString() + " returned a list:\n  " + value
+										+ "\nwhich contains a null element.\n"
+										+ "The correct list (modulo order of equal elements) is\n  " + expectedCopy);
+						return false;
+					}
+				}
+
+				Position<E> expectedPos = expected.first();
+				boolean found = false;
+				boolean equals = true;
+
+				while (expectedPos != null && !found && equals) {
+					E expectedE = expectedPos.element();
+					if (valueE.equals(expectedE)) {
+						found = true;
+						expected.remove(expectedPos);
+					} else if (!isSame.apply(new Pair<E, E>(valueE, expectedE)))
+						equals = false;
+
+					if (!found && equals) {
+						expectedPos = expected.next(expectedPos);
+					}
+				}
+
+				if (!found) {
+					printError(ExecutionTime.DURING, "the call " + call.toString() + " returned a list:\n  " + value
+							+ "\nwhich contains elements either incorrect elements or elements in the wrong order."
+							+ "\nThe correct list (modulo order of equal elements) is\n  " + expectedCopy);
+					return false;
+				}
+
+				valuePos = value.next(valuePos);
 			}
 			return true;
 		}
@@ -2653,6 +3061,22 @@ public class TesterInd3 {
 			}
 		}
 
+		static String printArray(char[] arr) {
+			if (arr == null)
+				return "null";
+			else {
+				StringBuilder arrString = new StringBuilder("[");
+
+				for (int i = 0; i < arr.length; i++) {
+					arrString.append(arr[i]);
+					if (i < arr.length - 1)
+						arrString.append(", ");
+				}
+				arrString.append("]");
+				return arrString.toString();
+			}
+		}
+
 		public static <T> PositionList<T> toPositionList(T[] arr) {
 			NodePositionList<T> l = new NodePositionList<T>();
 			for (int i = 0; i < arr.length; i++)
@@ -2665,6 +3089,19 @@ public class TesterInd3 {
 			for (int i = 0; i < arr.length; i++)
 				l.add(0, arr[i]);
 			return l;
+		}
+
+		public static Object accessAttribute(String fieldName, Object obj) {
+			try {
+				Field field;
+				field = obj.getClass().getDeclaredField(fieldName);
+				field.setAccessible(true);
+				return field.get(obj);
+			} catch (Throwable exc) {
+				TestUtils.printCallException(TestUtils.ExecutionTime.LAST,
+						"cannot access the field " + fieldName + ": ", exc);
+				return null;
+			}
 		}
 
 		public static void reportPid() {
@@ -3006,6 +3443,26 @@ public class TesterInd3 {
 			return ok_sofar;
 		}
 
+		boolean unchanged_array(char[] original, char[] newer) {
+			boolean ok_sofar = true;
+
+			if (newer.length != original.length) {
+				ok_sofar = false;
+			}
+
+			for (int i = 0; i < newer.length; i++) {
+				ok_sofar = newer[i] == original[i];
+			}
+
+			if (!ok_sofar) {
+				TestUtils.printError(TestUtils.ExecutionTime.LAST,
+						"the call to " + this + " has modified the input array " + TestUtils.printArray(original)
+								+ "; it has now the elements " + TestUtils.printArray(newer));
+				return ok_sofar;
+			}
+			return ok_sofar;
+		}
+
 		boolean setsMatch(Object expected) {
 			if (!noException())
 				return false;
@@ -3096,47 +3553,164 @@ public class TesterInd3 {
 		}
 	}
 
-	static class Compactar extends TestCall<PositionList<Integer>, Object> {
-		NodePositionList<Integer> x_1;
-		NodePositionList<Integer> x_1_orig;
+	static class Constructor extends TestCall<IncomingFlightsRegistry, Void> {
 
-		public Compactar(NodePositionList<Integer> x_1) {
-			this.x_1 = x_1;
-			if (x_1 == null)
-				x_1_orig = null;
-			else
-				x_1_orig = new NodePositionList<Integer>(x_1);
+		public Constructor() {
 		}
 
 		public String toString() {
 			StringBuilder output = new StringBuilder();
-			output.append(new String("OperacionCompactar.compactar"));
+			output.append(new String("new IncomingFlightsRegistry"));
 			output.append(new String("("));
-			output.append(TesterCode.printer(x_1_orig));
 			output.append(new String(")"));
 			return output.toString();
 		}
 
-		public PositionList<Integer> call() {
-			return OperacionCompactar.compactar(x_1);
+		public IncomingFlightsRegistry call() {
+			return new IncomingFlightsRegistry();
 		}
 
-		public boolean checkResult(Object expected) {
-			if (expected instanceof Throwable) {
-				Throwable t = (Throwable) expected;
-				if (!throwsException(t.getClass().getCanonicalName()))
-					return false;
-				return true;
-			}
+		public boolean checkResult(Void expected) {
+			if (!noException())
+				return false;
+			return true;
+		}
+
+	}
+
+	static class ArrivesAt extends TestCall<Void, Void> {
+		IncomingFlightsRegistry x_1;
+		String x_2;
+		long x_3;
+
+		public ArrivesAt(IncomingFlightsRegistry x_1, String x_2, long x_3) {
+			voidReturn = true;
+			this.x_1 = x_1;
+			this.x_2 = x_2;
+			this.x_3 = x_3;
+		}
+
+		public String toString() {
+			StringBuilder output = new StringBuilder();
+			output.append(TesterCode.printer(x_1));
+			output.append(new String(".arrivesAt"));
+			output.append(new String("("));
+			output.append(TesterCode.printer(x_2));
+			output.append(new String(", "));
+			output.append(TesterCode.printer(x_3));
+			output.append(new String(")"));
+			return output.toString();
+		}
+
+		public Void call() {
+			x_1.arrivesAt(x_2, x_3);
+			return null;
+		}
+
+		public boolean checkResult(Void expected) {
+			if (!noException())
+				return false;
+			return true;
+		}
+
+	}
+
+	static class FlightDiverted extends TestCall<Void, Void> {
+		IncomingFlightsRegistry x_1;
+		String x_2;
+
+		public FlightDiverted(IncomingFlightsRegistry x_1, String x_2) {
+			voidReturn = true;
+			this.x_1 = x_1;
+			this.x_2 = x_2;
+		}
+
+		public String toString() {
+			StringBuilder output = new StringBuilder();
+			output.append(TesterCode.printer(x_1));
+			output.append(new String(".flightDiverted"));
+			output.append(new String("("));
+			output.append(TesterCode.printer(x_2));
+			output.append(new String(")"));
+			return output.toString();
+		}
+
+		public Void call() {
+			x_1.flightDiverted(x_2);
+			return null;
+		}
+
+		public boolean checkResult(Void expected) {
+			if (!noException())
+				return false;
+			return true;
+		}
+
+	}
+
+	static class ArrivalTime extends TestCall<Long, Long> {
+		IncomingFlightsRegistry x_1;
+		String x_2;
+
+		public ArrivalTime(IncomingFlightsRegistry x_1, String x_2) {
+			this.x_1 = x_1;
+			this.x_2 = x_2;
+		}
+
+		public String toString() {
+			StringBuilder output = new StringBuilder();
+			output.append(TesterCode.printer(x_1));
+			output.append(new String(".arrivalTime"));
+			output.append(new String("("));
+			output.append(TesterCode.printer(x_2));
+			output.append(new String(")"));
+			return output.toString();
+		}
+
+		public Long call() {
+			return x_1.arrivalTime(x_2);
+		}
+
+		public boolean checkResult(Long expected) {
+			if (!noException())
+				return false;
+			if (!valuesMatch(expected))
+				return false;
+			return true;
+		}
+
+	}
+
+	static class Arriving extends
+			TestCall<es.upm.aedlib.positionlist.PositionList<FlightArrival>, es.upm.aedlib.positionlist.PositionList<FlightArrival>> {
+		IncomingFlightsRegistry x_1;
+		Long x_2;
+
+		public Arriving(IncomingFlightsRegistry x_1, Long x_2) {
+			this.x_1 = x_1;
+			this.x_2 = x_2;
+		}
+
+		public String toString() {
+			StringBuilder output = new StringBuilder();
+			output.append(TesterCode.printer(x_1));
+			output.append(new String(".arriving"));
+			output.append(new String("("));
+			output.append(TesterCode.printer(x_2));
+			output.append(new String(")"));
+			return output.toString();
+		}
+
+		public es.upm.aedlib.positionlist.PositionList<FlightArrival> call() {
+			return x_1.arriving(x_2);
+		}
+
+		public boolean checkResult(es.upm.aedlib.positionlist.PositionList<FlightArrival> expected) {
 			if (!noException())
 				return false;
 			if (!nonNull())
 				return false;
-			if (!(result.isException() || fresh(result.getValue(), x_1)))
-				return false;
-			if (!unchanged(x_1, x_1_orig))
-				return false;
-			if (!valuesMatch(expected))
+			if (!AirportUtils.checkArriving(this, result, expected))
 				return false;
 			return true;
 		}
@@ -3329,10 +3903,11 @@ public class TesterInd3 {
 	static class TesterCode {
 
 		public static void resetPrinter() {
+			AirportUtils.resetPrinter();
 		}
 
 		public static String printer(Object obj) {
-			return TestUtils.standardPrinter(obj);
+			return AirportUtils.printer(obj);
 		}
 
 	}
